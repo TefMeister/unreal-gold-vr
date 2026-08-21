@@ -1,5 +1,10 @@
 # Session 1 — 2026-08-21 — install rescue, feasibility research, groundwork
 
+> **Superseded in part:** this entry describes the original plan to fork
+> ICBINDx11Drv. On design review (see session 2) that changed — the render
+> device is written from scratch; existing renderers are study material and
+> prior art only. Kept as-is because this ledger records history.
+
 ## What happened
 
 1. **Install fixed.** The fresh Unreal Gold + OldUnreal 227k install crashed on
