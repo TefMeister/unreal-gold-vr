@@ -39,9 +39,26 @@ applied to every other project. The `URenderDevice` surface is small, the SDK
 provides several complete renderers to learn from, and M1 needs correctness,
 not feature parity.
 
+## And then it happened: the scaffold works (same session)
+
+`VRGoldDrv` was scaffolded in the staging repo (`VRGoldDrv/` — header,
+implementation, standalone CMakeLists against the SDK), compiled and linked on
+the first attempt (VS 2022, x64 Release), and passed a live load test:
+
+```
+Log: Bound to VRGoldDrv.dll
+Init: VRGoldDrv: Init 1024x768 colorbytes=4 fullscreen=1
+Init: Game engine initialized
+```
+
+The engine accepted our from-scratch device as `GameRenderDevice` and booted to
+the menu root window with no crash over a 20-second run. The device draws
+nothing yet, by design. Full log and incidental findings (including this
+install's gutted-`Unreal.ini` stub, repaired per dossier §11) are in the
+dev archive: `recon/2026-08-21-vrgolddrv-scaffold-loads/`.
+
 ## Next
 
-Scaffold `VRGoldDrv` in the staging repo (our own CMake package building
-against the SDK headers), get a minimal do-nothing render device compiling,
-loading, and selectable via `GameRenderDevice=`, then build up flat rendering
-toward M1.
+Give the device eyes: a D3D11 device/swap chain and a cleared screen, then
+`DrawTile` (menus/HUD are visible proof), then BSP surfaces and meshes — flat
+rendering toward M1 parity.
