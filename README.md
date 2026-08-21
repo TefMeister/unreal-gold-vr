@@ -12,10 +12,19 @@ follow.
 ## What this will be
 
 Unreal Engine 1 loads its renderer as a plugin DLL, so this mod is a *native
-VR render device* (forked from the MIT-licensed
-[ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv)) plus an
-UnrealScript companion package — no injection, no hooking, no patched game
-binaries.
+VR render device* plus an UnrealScript companion package — no injection, no
+hooking, no patched game binaries. The render device is **written from
+scratch** against the official OldUnreal 227k SDK; existing renderers such as
+the MIT-licensed
+[ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv) are studied
+and credited as prior art, but no one else's code is used — every line is our
+own, by deliberate policy. That makes the road harder, and that is rather the
+point: the playable mod is almost the by-product. The real goal is the
+knowledge gained on the way there, written down and shared so anyone can do
+the same for any game — see the
+[engine dossier](https://github.com/TefMeister/unreal-gold-vr-engine-research)
+and the cross-engine
+[flat-to-VR library](https://github.com/TefMeister/flat-to-vr-cross-engine-research).
 
 ## What you will need
 
