@@ -43,3 +43,10 @@ Non-commercial fan project; requires an owned copy; redistributes no original
 assets. We credit everyone whose work this builds on — see
 [`CREDITS.md`](CREDITS.md) — and we honour correction/removal requests from
 rights holders promptly.
+
+## Contributing & policy
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) — how we credit and link sources, our
+**study-everything-public but write-our-own-code** rule (we copy no one else's
+source code or files, any license or price), the terms for reusing our work
+(free, with credit), and how to request a correction or removal.
