@@ -57,8 +57,18 @@ nothing yet, by design. Full log and incidental findings (including this
 install's gutted-`Unreal.ini` stub, repaired per dossier §11) are in the
 dev archive: `recon/2026-08-21-vrgolddrv-scaffold-loads/`.
 
+## Later the same evening: the device owns the screen
+
+The D3D11 step landed immediately after: `VRGoldDrv` now creates its own D3D11
+device and flip-model swap chain on the viewport window, clears every frame,
+and presents. With all draw calls still no-ops, the game window becomes a
+solid teal rectangle — deliberately unmistakable proof that every pixel on
+screen comes from our code. Verified by screenshot mid-run plus the engine
+log (`VRGoldDrv: D3D11 device + swap chain ready (1024x768)`); evidence in the
+dev archive, `recon/2026-08-21-vrgolddrv-swapchain/`.
+
 ## Next
 
-Give the device eyes: a D3D11 device/swap chain and a cleared screen, then
-`DrawTile` (menus/HUD are visible proof), then BSP surfaces and meshes — flat
-rendering toward M1 parity.
+`DrawTile`: convert `FTextureInfo` textures to D3D11 shader resource views and
+batch textured quads — that makes the menus and HUD visible. Then BSP surfaces
+(`DrawComplexSurface`) and meshes toward M1 flat parity.
