@@ -25,11 +25,13 @@ field notes). This repo is the consolidated engine knowledge, not the diary.
 
 Unlike our other conversions, this one needs **no injection, hooking, or
 memory patching**. Unreal Engine 1 loads its renderer as a plugin DLL
-(`URenderDevice`), the OldUnreal 227k patch is an Epic-licensed maintenance
-patch with public UnrealScript source, and the D3D11 renderer we fork
-([ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv)) is MIT
-licensed. The VR mod is simply *another renderer* plus a script package —
-built entirely from published, licensed interfaces.
+(`URenderDevice`), and the OldUnreal 227k patch is an Epic-licensed
+maintenance patch that ships an official C++ SDK with public UnrealScript
+source. The VR mod is simply *another renderer* plus a script package — our
+render device is **written from scratch** against that SDK, with existing
+renderers such as the MIT-licensed
+[ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv) studied and
+credited as prior art but no code reused, per our study-don't-copy policy.
 
 ## The five repositories for Unreal Gold VR
 
@@ -47,9 +49,9 @@ always know where to look. You are in **unreal-gold-vr-engine-research**.
 ## Status
 
 Project started 2026-08-21. Groundwork phase: repos created, design approved
-(native VR render device forked from ICBINDx11Drv; SteamVR first, OpenXR
-second; decoupled motion-controller weapon aim). See the dossier for the
-current phase and open risks.
+(native VR render device written from scratch against the 227k SDK; SteamVR
+first, OpenXR second; decoupled motion-controller weapon aim). See the dossier
+for the current phase and open risks.
 
 ## Scope, ethics, and legality
 
