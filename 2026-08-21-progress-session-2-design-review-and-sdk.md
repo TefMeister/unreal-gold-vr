@@ -67,8 +67,21 @@ screen comes from our code. Verified by screenshot mid-run plus the engine
 log (`VRGoldDrv: D3D11 device + swap chain ready (1024x768)`); evidence in the
 dev archive, `recon/2026-08-21-vrgolddrv-swapchain/`.
 
+## And still the same evening: the 2D layer renders
+
+`DrawTile` landed next: embedded HLSL shaders, a dynamic vertex buffer, a
+CacheID-keyed texture cache (P8 palettized with correct masking, BGRA8), and
+the classic UE1 blend modes. The proof screenshot shows the 227k splash
+screen — Epic MegaGames, GT Digital, Digital Extremes, the Unreal logo,
+OpenAL, and PhysX logos — every pixel drawn by our from-scratch device,
+masked cleanly over the teal diagnostic clear. Evidence:
+`recon/2026-08-21-vrgolddrv-drawtile/` in the dev archive.
+
+One evening took the device from "compiles" to "loads", "owns the screen",
+and now "draws the game's 2D layer" — with zero borrowed lines.
+
 ## Next
 
-`DrawTile`: convert `FTextureInfo` textures to D3D11 shader resource views and
-batch textured quads — that makes the menus and HUD visible. Then BSP surfaces
-(`DrawComplexSurface`) and meshes toward M1 flat parity.
+`DrawComplexSurface`: BSP world geometry, which needs the `FSceneNode` camera
+transform and a depth buffer — the heart of flat rendering. Then
+`DrawGouraudPolygon` (meshes) toward M1 flat parity.
