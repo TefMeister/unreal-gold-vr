@@ -27,7 +27,7 @@ in any repository in this project.
 | Source / Work | Creator(s) | Link |
 |---|---|---|
 | OldUnreal 227 patch (227k) — the Epic-licensed community maintenance patch this project targets, including its 64-bit builds and modern renderers | Smirftsch and the OldUnreal community | https://www.oldunreal.com / https://github.com/OldUnreal |
-| ICBINDx11Drv ("I Can't Believe It's Not DX11") — the MIT-licensed Direct3D 11 render device our VR renderer is forked from | metallicafan212 and contributors | https://github.com/metallicafan212/ICBINDx11Drv (OldUnreal fork: https://github.com/OldUnreal/ICBINDx11Drv) |
+| ICBINDx11Drv ("I Can't Believe It's Not DX11") — the MIT-licensed Direct3D 11 render device for UE1; studied as prior art and reference for our from-scratch VR renderer (no code reused, per our study-don't-copy policy) | metallicafan212 and contributors | https://github.com/metallicafan212/ICBINDx11Drv (OldUnreal fork: https://github.com/OldUnreal/ICBINDx11Drv) |
 | XOpenGLDrv (modern OpenGL render device; reference for 227 renderer integration) | Smirftsch / OldUnreal and contributors | https://github.com/OldUnreal/XOpenGLDrv |
 | Public UnrealScript source for 227 | OldUnreal | https://github.com/OldUnreal/Unreal-PubSrc |
 | UT99 Quest — the native Meta Quest VR rebuild of Unreal Tournament (1999); closed-source, but living proof that native UE1 VR with motion controls is achievable, and the source of the "UE1 has no view matrix; stereo comes from where each eye sits" insight | GHWST | https://ut99vr.pages.dev/ |
