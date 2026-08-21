@@ -19,7 +19,7 @@
 - **Source availability (the big one):**
   - UnrealScript source for all of 227: public at [OldUnreal/Unreal-PubSrc](https://github.com/OldUnreal/Unreal-PubSrc).
   - Full C++ engine source: **not public** (OldUnreal builds from a licensed private repo).
-  - C++ render devices: multiple open-source references — [ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv) (MIT, D3D11), [XOpenGLDrv](https://github.com/OldUnreal/XOpenGLDrv), UT99VulkanDrv, FruitCompanyRenderer (Metal). These build against public UE1 SDK headers (ICBINDx11Drv recommends the UT469 public SDK; **TODO: confirm the matching 227k SDK headers and where they ship**).
+  - C++ render devices: multiple open-source references — [ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv) (MIT, D3D11), [XOpenGLDrv](https://github.com/OldUnreal/XOpenGLDrv), UT99VulkanDrv, FruitCompanyRenderer (Metal). These build against public UE1 SDK headers. **CONFIRMED (2026-08-21): the official 227k SDK is `OldUnreal-UnrealPatch227k-SDK.zip`, shipped as an asset of the [OldUnreal/Unreal-testing v227k_12 release](https://github.com/OldUnreal/Unreal-testing/releases/tag/v227k_12).** It contains C++ headers plus Windows `.lib` files for Core/Engine/Render (closed-source, link-only), full source for the community renderers (D3D9Drv, OpenGLDrv, XOpenGLDrv, ICBINDx11Drv — study material only under our no-copy rule), and a CMake build system targeting Visual Studio 2022 (32-bit via `-A Win32`, 64-bit by default; install prefix = the game's `System`/`System64` folder). The render-device contract is `Engine/Inc/UnRenDev.h`: `URenderDevice` with ~15 required virtuals (`Init`/`SetRes`/`Exit`/`Flush`, `Lock`/`Unlock`, `DrawComplexSurface`/`DrawGouraudPolygon`/`DrawTile`, `Draw2DLine`/`Draw2DPoint`, `ClearZ`, `PushHit`/`PopHit`, `GetStats`, `ReadPixels`) plus optional 227-era extensions (`SetSceneNode`, clip planes, and 227k's new `PushRenderToTexture`/`PopRenderToTexture`). Epic license: personal, non-commercial use only — compatible with this fan mod.
 
 ## 3. Binary & memory
 - 32-bit (`SYSTEM\`) and 64-bit (`System64\`) native builds; desktop shortcut launches the 32-bit exe; **the 64-bit build is the intended VR host**.
@@ -32,18 +32,18 @@
 
 ## 5. Threading & frame structure
 - UE1 is essentially single-threaded for game + render tick (227k details TBD — verify whether ICBINDx11Drv adds worker threads for decals/precache).
-- One-frame walkthrough: TODO once we're inside the forked renderer (`Lock` → draw calls (`DrawComplexSurface`, `DrawGouraudPolygon`, `DrawTile`) → `Unlock`/present is the classic URenderDevice contract).
+- One-frame walkthrough: TODO once we're inside our own renderer (`Lock` → draw calls (`DrawComplexSurface`, `DrawGouraudPolygon`, `DrawTile`) → `Unlock`/present is the classic URenderDevice contract).
 
 ## 6. Camera & projection delivery (the crucial section)
 - **UE1 has no view matrix.** The renderer receives an `FSceneNode` per frame containing camera origin + `FCoords` (rotation basis) and FOV; geometry arrives pre-transformed or transformed via the scene node's coords. Stereo therefore comes from rendering the frame twice with per-eye camera origins/bases ("separation comes purely from where each eye sits" — confirmed approach from UT99 Quest).
 - Head tracking: inject HMD orientation into the view. Options (to be decided in-fork): adjust the `FSceneNode` coords in the render device per eye, and/or drive `PlayerCalcView`/ViewRotation from the script/native side. XIII (UE2) precedent: overriding `PlayerCalcView` worked for head-look (FRotator = 65536 units/revolution — same convention in UE1; OpenVR yaw sign was negated in XIII, expect the same here).
-- Projection: FOV comes from the engine per-viewport; per-eye asymmetric projection must be built from the VR runtime's eye tangents. TODO: find where ICBINDx11Drv builds its projection matrix and how to feed per-eye frusta.
+- Projection: FOV comes from the engine per-viewport; per-eye asymmetric projection must be built from the VR runtime's eye tangents. TODO: study how the SDK's reference renderers derive their projection from `FSceneNode` (FOV/FX/FY), then design our own per-eye frustum path.
 
 ## 7. Constant-buffer fill mechanism
-- Our own code (forked ICBINDx11Drv), so no discovery needed — we control the cbuffers. Section repurposed: document the fork's cbuffer layout for the per-eye transforms once written.
+- Our own code (`VRGoldDrv`, written from scratch per the 2026-08-21 design revision — no fork), so no discovery needed — we control the cbuffers. Section repurposed: document our renderer's cbuffer layout for the per-eye transforms once written.
 
 ## 8. Pass inventory (by render target)
-- TODO from inside the fork. Known from the URenderDevice contract: world surfaces (BSP `DrawComplexSurface`), meshes (`DrawGouraudPolygon`), HUD/menus (`DrawTile` — 2D, must be redirected to an in-world plane for VR), plus 227k post-FX (resolution scaling shader seen in logs).
+- TODO from inside our renderer. Known from the URenderDevice contract: world surfaces (BSP `DrawComplexSurface`), meshes (`DrawGouraudPolygon`), HUD/menus (`DrawTile` — 2D, must be redirected to an in-world plane for VR), plus 227k post-FX (resolution scaling shader seen in logs).
 
 ## 9. cvar / console cheat sheet
 | command / cvar | effect | use |
@@ -62,7 +62,8 @@
 - **UT99 Quest is not reusable** — closed source, Quest-only APK; it is proof of feasibility and an approach reference only.
 
 ## 12. Open risks toward the North Star
-- 227k-compatible C++ SDK headers for building a render device: identify the exact header set/version (ICBINDx11Drv targets UT469 + HP2; its 227 compatibility must be confirmed or ported).
+- ~~227k-compatible C++ SDK headers for building a render device~~ **RESOLVED 2026-08-21:** the official 227k SDK (see §2) ships the headers, `.lib` files, and CMake build; VS 2022 Build Tools + CMake confirmed present on the home PC.
+- **New risk from the no-fork decision (2026-08-21):** writing the D3D11 renderer from scratch (rather than forking ICBINDx11Drv) raises the M1 cost — a full BSP/mesh/tile renderer must reach visual parity before VR work starts. Mitigation: the URenderDevice surface is small (~15 required virtuals), the SDK includes several complete renderers to *study*, and M1 only requires correct flat rendering, not feature parity (no post-FX, no advanced options).
 - Decoupled weapon aim requires a script-side package plus a bridge to controller poses (227 native DLL binding) — mechanism confirmed to exist, details unproven.
 - Two-pass stereo cost on a 1998 BSP renderer with 2026 post-FX: unknown; dev-PC numbers are non-diagnostic by standing rule (judge on the home rig).
 - HUD/menu (`DrawTile`) redirection to an in-world plane: known-solvable (UT99 Quest did it) but non-trivial.
