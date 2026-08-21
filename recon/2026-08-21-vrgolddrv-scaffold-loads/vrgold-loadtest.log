@@ -1,0 +1,80 @@
+﻿Log: Log file open, 08/21/26 21:55:36
+Init: Name subsystem initialized
+Init: Version: 227 Subversion: 11
+Init: Compiled: Aug 15 2026 13:48:22
+Init: Command line: LOG=vrgold-loadtest.log 
+Init: Base directory: C:\NonSteam\UnrealGold\System64\
+Init: Character set: Unicode
+Log: Bound to Engine.dll
+Log: Bound to Core.dll
+Log: Bound to Window.dll
+Init: Object subsystem initialized
+Init: OS: Windows
+Init: Computer: RTX
+Init: User: TD3KX
+Init: Memory total: Phys=33319232K Pagef=37120320K Virt=-128K
+Init: Working set: 32000 / 159000
+Init: Timer Frequency=3494.405280 MHz - Timing Source = RDTSC
+Init: CPU Page size=4096, Processors / Cores=20
+Init: CPU Detected: Intel(R) Core(TM) i5-14600K
+Init: CPU Features: MMX SSE SSE2 SSE3 SSSE3 SSE41 SSE42
+Log: Not forcing CPU affinity.
+Init: Unreal engine initialized
+Log: Bound to PhysXPhysics.dll
+PhysX: Initializing PhysX physics engine (ver 4.1.2)!
+Log: Bound to Fire.dll
+Log: Bound to WinDrv.dll
+Init: Enhanced Pointer Precision Disabled
+Init:    display (Primary Display Driver)
+Init: DirectDraw initialized successfully
+Init: Initializing Mouse Input Handler: Raw Input
+Init: Client initialized
+Log: Bound to Render.dll
+Init: Lighting subsystem initialized
+Init: Rendering initialized
+Log: LoadMap: EntryIII.unr
+Warning: Failed to load EntryIII.unr: Can't find file EntryIII.unr..
+Warning: Failed to load "Level None.MyLevel": Can't find file EntryIII.unr..
+Log: LoadMap: Entry
+Log: Bringing Level Entry.MyLevel up for play (0)...
+ScriptLog: InitGame: 
+ScriptLog: Difficulty 1
+ScriptLog: Base Mutator is Entry.Mutator
+Log: Browse: LOG=vrgold-loadtest.log/Index.unr?Name=Player?Class=UnrealI.FemaleOne
+Log: Bound to IpDrv.dll
+Init: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+Init: WinSock: Socket queue 32768 / 32768
+Init: WinSock: I am RTX (192.168.0.125)
+Log: Browse: UPack.unr?Name=Player?Class=UnrealI.FemaleOne
+Log: LoadMap: UPack.unr?Name=Player?Class=UnrealI.FemaleOne
+Log: Bound to UPak.dll
+Log: Bringing Level Upack.MyLevel up for play (0)...
+ScriptLog: InitGame: ?Name=Player?Class=UnrealI.FemaleOne
+ScriptLog: Difficulty 1
+ScriptLog: Base Mutator is Upack.Mutator
+Log: Possessed PlayerPawn: FemaleOne Upack.FemaleOne
+ServerLog: All inventory from Player is accepted
+Init: Input system initialized for WindowsViewport
+Log: Opened viewport
+Log: Bound to VRGoldDrv.dll
+Init: VRGoldDrv: Init 1024x768 colorbytes=4 fullscreen=1
+Log: Bound to ALAudio.dll
+Init: ALAudio: Trying to autodetect HRTF. Note: Autodetection may only work with USB headphones.
+Init: ALAudio: We are using OpenAL device: OpenAL Soft 
+Init: ALAudio: OutputRateNum 5(44100 Hz) SampleRateNum 5 (44100 Hz)
+Init: ALAudio: Audio hardware supports 255 mono (usually sound) and 1 stereo (usually music) sources.
+Init: ALAudio: auto matched SampleRate (44100 Hz) to OutputRate (44100 Hz).
+Init: ALAudio: OpenALSoft extension ALC_SOFT_HRTF found.
+Init: ALAudio: HRTF is disabled.
+Init: OpenAL Effects extension version 1.0 found.
+Init: ALAudio: EFX initialized.
+Init: ALAudio: Version 1.1 ALSOFT 1.24.3 found
+Init: ALAudio subsystem initialized.
+Init: Game engine initialized
+Log: Startup time: 1.181502 seconds
+Warning: FIREWALL: Freed Windows Firewall Object
+Warning: Connection attempt failed: Host name resolution just now failed: Can't find host LOG=vrgold-loadtest.log (WSAHOST_NOT_FOUND)
+ScriptLog: Creating root window: UMenu.UMenuRootWindow
+Log: Pending connect to LOG=vrgold-loadtest.log:7777 failed; Connection failed
+NetComeGo: Close TcpipConnection 0.0.0.0:7777 (Server) 08/21/26 21:55:41 (Disconnected by server)
+Exit: Socket shut down
