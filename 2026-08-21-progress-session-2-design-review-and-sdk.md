@@ -80,8 +80,24 @@ masked cleanly over the teal diagnostic clear. Evidence:
 One evening took the device from "compiles" to "loads", "owns the screen",
 and now "draws the game's 2D layer" — with zero borrowed lines.
 
+## And before midnight: the 3D world renders
+
+`DrawComplexSurface` (BSP with lightmaps) and `DrawGouraudPolygon` (meshes)
+landed together, with a real depth buffer — and worked on the first build.
+The menu's 3D flyby background now renders where the teal used to be.
+
+The discovery worth sharing: **UE1 has no projection matrix.** The whole
+camera model is one line in `UnRender.h` —
+`pixel = View · Proj.Z / ViewZ + FX15` — and it folds exactly into six
+clip-space constants in a single constant buffer, updated per `SetSceneNode`.
+Making the future VR mod stereo, on the projection side, means nothing more
+than swapping those six numbers per eye. Full derivation and the texture-
+mapping formulas (facet plane dots, the lightmap half-texel bias, the ×2
+overbright) are in the dev archive: `recon/2026-08-21-vrgolddrv-world/`.
+
 ## Next
 
-`DrawComplexSurface`: BSP world geometry, which needs the `FSceneNode` camera
-transform and a depth buffer — the heart of flat rendering. Then
-`DrawGouraudPolygon` (meshes) toward M1 flat parity.
+An in-game verification pass: load a real map, walk around, eyeball lightmap
+alignment and texture panning (the pan signs are first-principles guesses),
+fix findings. Then M1 polish — fog maps, detail textures, DXT, screenshots —
+and on to M2 stereo.
