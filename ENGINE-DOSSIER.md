@@ -36,7 +36,7 @@
 
 ## 6. Camera & projection delivery (the crucial section)
 - **UE1 has no view matrix.** The renderer receives an `FSceneNode` per frame containing camera origin + `FCoords` (rotation basis) and FOV; geometry arrives pre-transformed or transformed via the scene node's coords. Stereo therefore comes from rendering the frame twice with per-eye camera origins/bases ("separation comes purely from where each eye sits" — confirmed approach from UT99 Quest).
-- Head tracking: inject HMD orientation into the view. Options (to be decided in-fork): adjust the `FSceneNode` coords in the render device per eye, and/or drive `PlayerCalcView`/ViewRotation from the script/native side. XIII (UE2) precedent: overriding `PlayerCalcView` worked for head-look (FRotator = 65536 units/revolution — same convention in UE1; OpenVR yaw sign was negated in XIII, expect the same here).
+- Head tracking: inject HMD orientation into the view. Options (to be decided in our renderer): adjust the `FSceneNode` coords in the render device per eye, and/or drive `PlayerCalcView`/ViewRotation from the script/native side. XIII (UE2) precedent: overriding `PlayerCalcView` worked for head-look (FRotator = 65536 units/revolution — same convention in UE1; OpenVR yaw sign was negated in XIII, expect the same here).
 - Projection: FOV comes from the engine per-viewport; per-eye asymmetric projection must be built from the VR runtime's eye tangents. TODO: study how the SDK's reference renderers derive their projection from `FSceneNode` (FOV/FX/FY), then design our own per-eye frustum path.
 
 ## 7. Constant-buffer fill mechanism
