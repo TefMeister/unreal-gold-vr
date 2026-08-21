@@ -95,9 +95,48 @@ than swapping those six numbers per eye. Full derivation and the texture-
 mapping formulas (facet plane dots, the lightmap half-texel bias, the ×2
 overbright) are in the dev archive: `recon/2026-08-21-vrgolddrv-world/`.
 
+## Late evening: the first human playtest — fine-tuning live with the owner
+
+The project owner played Vortex Rikers and NyLeve's Falls on the from-scratch
+renderer and fed back findings in real time; each was diagnosed, fixed,
+rebuilt, and re-verified within minutes. All four fixes below are
+**user-verified in-game**:
+
+1. **Menu text was solid gold blocks** → 227 draws UI text with
+   `PF_AlphaBlend` (glyph shapes live in the texture's alpha channel), and a
+   premultiplied variant rides on `PF_Highlighted`. Added both blend modes and
+   stopped forcing palette alpha opaque when those flags are present.
+   *Verified: menus readable and clickable.*
+2. **Scene darker than stock; no fog** → both were the same missing feature:
+   **fog maps**, UE1's additive per-surface layer that is simultaneously the
+   volumetric light glow and the haze. The engine only computes them (and
+   coronas) when the render device claims `SupportsFogMaps` /
+   `VolumetricLighting` / `Coronas`. Claimed them, sampled the fog map
+   additively (same texture-plane mapping as lightmaps, own pan/scale,
+   half-texel bias), added per-vertex fog for meshes.
+   *Verified: the classic green Vortex Rikers corridor glow is back, and
+   coronas render with their lens streaks.*
+3. **Corpses/trees/gun/birds flickering psychedelic colors** → per-vertex
+   `Fog` values on meshes are **only valid when the engine passes
+   `PF_RenderFog`**; read without the flag they're stale memory that changes
+   every frame. Gated the fog add on the flag.
+   *Verified: meshes normally lit, no flicker.*
+4. **Menu buttons needed the mouse ~1 cm above their visuals** → the log
+   caught it: 227 handed us a window whose **client area was 1040×807 for a
+   1024×768 request** (exactly one window-frame larger), so DXGI stretched
+   the back buffer and visuals sat up to ~39 px below the engine's hit-test
+   coordinates. Fix: force the client area to exactly the requested size
+   after every resize (`AdjustWindowRectEx` + `SetWindowPos`).
+   *Fix built; verification pending the next restart.*
+
+Also user-confirmed in passing: the skybox and moon render correctly (sky
+zones exercise `SetSceneNode` + `ClearZ` between passes), terrain and rock
+lightmaps look right, and the game is playable start of Vortex Rikers through
+to the NyLeve exterior with quicksave/load working.
+
 ## Next
 
-An in-game verification pass: load a real map, walk around, eyeball lightmap
-alignment and texture panning (the pan signs are first-principles guesses),
-fix findings. Then M1 polish — fog maps, detail textures, DXT, screenshots —
-and on to M2 stereo.
+Verify the client-area fix (menu clicks should be pixel-accurate). Then
+remaining M1 polish: fog-brightness calibration against stock, scrolling-
+texture pan signs, detail/macro textures, DXT formats, `ReadPixels`
+screenshots — and on to M2 stereo.
