@@ -5,9 +5,9 @@ decisions. Unreal was the project lead's first-ever Unreal Engine game, which
 makes putting it in a headset with motion controls a personal milestone as much
 as a technical one.
 
-## The five repositories for Unreal Gold VR
+## The six repositories for Unreal Gold VR
 
-Everything for this game lives in five repositories, each with one job — so you
+Everything for this game lives in six repositories, each with one job — so you
 always know where to look. You are in **unreal-gold-vr-modding-notes**.
 
 | Repository | What lives here |
@@ -17,6 +17,7 @@ always know where to look. You are in **unreal-gold-vr-modding-notes**.
 | **unreal-gold-vr-modding-notes** ← you are here | Readable field notes / progress ledger. |
 | [unreal-gold-vr-staging](https://github.com/TefMeister/unreal-gold-vr-staging) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
 | [unreal-gold-vr-engine-research](https://github.com/TefMeister/unreal-gold-vr-engine-research) | Distilled engine reference (dossier) + reusable VR RE playbook. |
+| [unreal-gold-vr-external-research](https://github.com/TefMeister/unreal-gold-vr-external-research) | Ongoing public-research leads, gathered separately from hands-on modding work. |
 
 ## Contributing & policy
 
