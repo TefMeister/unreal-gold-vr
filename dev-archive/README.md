@@ -1,27 +1,27 @@
-# unreal-gold-vr-dev-archive
+# unreal-gold-vr — `dev-archive/`
 
 Full development archive for the Unreal Gold (1998) VR mod — snapshots, probes,
 raw recon data, and the messy in-progress history behind the mod. Only files
 created during development; no game files.
 
 The readable version of this history lives in
-[unreal-gold-vr-modding-notes](https://github.com/TefMeister/unreal-gold-vr-modding-notes);
+[`modding-notes/`](../modding-notes/);
 the distilled engine knowledge lives in
-[unreal-gold-vr-engine-research](https://github.com/TefMeister/unreal-gold-vr-engine-research).
+[`engine-research/`](../engine-research/).
 
-## The six repositories for Unreal Gold VR
+## The folders for Unreal Gold VR
 
-Everything for this game lives in six repositories, each with one job — so you
-always know where to look. You are in **unreal-gold-vr-dev-archive**.
+Everything for this game lives in one repository, one folder per job — so you
+always know where to look. You are in **`dev-archive/`**.
 
-| Repository | What lives here |
+| Folder | What lives here |
 | --- | --- |
-| [unreal-gold-vr-mod](https://github.com/TefMeister/unreal-gold-vr-mod) | The mod itself — the VR render device + UnrealScript companion package. |
-| **unreal-gold-vr-dev-archive** ← you are here | Full development history — snapshots, probes, dead ends, raw recon. |
-| [unreal-gold-vr-modding-notes](https://github.com/TefMeister/unreal-gold-vr-modding-notes) | Readable field notes / progress ledger. |
-| [unreal-gold-vr-staging](https://github.com/TefMeister/unreal-gold-vr-staging) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
-| [unreal-gold-vr-engine-research](https://github.com/TefMeister/unreal-gold-vr-engine-research) | Distilled engine reference (dossier) + reusable VR RE playbook. |
-| [unreal-gold-vr-external-research](https://github.com/TefMeister/unreal-gold-vr-external-research) | Ongoing public-research leads, gathered separately from hands-on modding work. |
+| [`mod/`](../mod/) | The mod itself — the VR render device + UnrealScript companion package. |
+| **`dev-archive/`** ← you are here | Full development history — snapshots, probes, dead ends, raw recon. |
+| [`modding-notes/`](../modding-notes/) | Readable field notes / progress ledger. |
+| [staging/unreal-gold-vr](https://github.com/TefMeister/staging/tree/main/unreal-gold-vr) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
+| [`engine-research/`](../engine-research/) | Distilled engine reference (dossier) + reusable VR RE playbook. |
+| [`external-research/`](../external-research/) | Ongoing public-research leads, gathered separately from hands-on modding work. |
 
 ## Contributing & policy
 
