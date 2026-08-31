@@ -1,22 +1,22 @@
-# unreal-gold-vr-external-research
+# unreal-gold-vr — `external-research/`
 
 Ongoing **public research** findings for the Unreal Gold VR mod — leads, prior art, and technique write-ups gathered from publicly available sources (blogs, forums, existing tools, documentation), kept **separate from hands-on modding work**.
 
 This repo exists so a dedicated research-only session can run *at the same time* as active reverse-engineering/coding work without any risk of the two colliding — research never writes to any of the other five repos, and the modding side just reads this one when it wants to check for new leads. See [INDEX.md](INDEX.md) for the running list of topics.
 
-## The six repositories for Unreal Gold VR
+## The folders for Unreal Gold VR
 
-Everything for this game lives in six repositories, each with one job — so you
-always know where to look. You are in **unreal-gold-vr-external-research**.
+Everything for this game lives in one repository, one folder per job — so you
+always know where to look. You are in **`external-research/`**.
 
-| Repository | What lives here |
+| Folder | What lives here |
 | --- | --- |
-| [unreal-gold-vr-mod](https://github.com/TefMeister/unreal-gold-vr-mod) | The mod itself — the VR render device + UnrealScript companion package. |
-| [unreal-gold-vr-dev-archive](https://github.com/TefMeister/unreal-gold-vr-dev-archive) | Full development history — snapshots, probes, dead ends, raw recon. |
-| [unreal-gold-vr-modding-notes](https://github.com/TefMeister/unreal-gold-vr-modding-notes) | Readable field notes / progress ledger. |
-| [unreal-gold-vr-staging](https://github.com/TefMeister/unreal-gold-vr-staging) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
-| [unreal-gold-vr-engine-research](https://github.com/TefMeister/unreal-gold-vr-engine-research) | Distilled engine reference (dossier) + reusable VR RE playbook. |
-| **unreal-gold-vr-external-research** ← you are here | Ongoing public-research leads — read-only input to the other five, never the other way around. |
+| [`mod/`](../mod/) | The mod itself — the VR render device + UnrealScript companion package. |
+| [`dev-archive/`](../dev-archive/) | Full development history — snapshots, probes, dead ends, raw recon. |
+| [`modding-notes/`](../modding-notes/) | Readable field notes / progress ledger. |
+| [staging/unreal-gold-vr](https://github.com/TefMeister/staging/tree/main/unreal-gold-vr) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
+| [`engine-research/`](../engine-research/) | Distilled engine reference (dossier) + reusable VR RE playbook. |
+| **`external-research/`** ← you are here | Ongoing public-research leads — read-only input to the other five, never the other way around. |
 
 ## How this repo is used
 
