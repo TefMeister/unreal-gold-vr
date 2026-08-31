@@ -4,7 +4,7 @@ Engine research toward a VR conversion of **Unreal Gold (1998)** — the very
 first Unreal Engine game — running on the **OldUnreal 227k** community patch,
 with SteamVR/OpenXR output and motion-controlled weapon aim as the goal.
 
-This repository holds two things:
+This folder holds two things:
 
 - **[`PLAYBOOK.md`](PLAYBOOK.md)** — a reusable, engine-agnostic, point-by-point
   method for taking *any* game whose engine nobody has converted to VR and
@@ -17,7 +17,7 @@ This repository holds two things:
   (UE1 famously has no view matrix), the OldUnreal 227k specifics, and the dead
   ends — so they don't cost the next session the same time.
 
-The blow-by-blow development history lives in the sibling repositories
+The blow-by-blow development history lives in the sibling folders
 (`-dev-archive` for the messy in-progress record, `-modding-notes` for readable
 field notes). This repo is the consolidated engine knowledge, not the diary.
 
@@ -33,19 +33,19 @@ renderers such as the MIT-licensed
 [ICBINDx11Drv](https://github.com/metallicafan212/ICBINDx11Drv) studied and
 credited as prior art but no code reused, per our study-don't-copy policy.
 
-## The six repositories for Unreal Gold VR
+## The folders for Unreal Gold VR
 
-Everything for this game lives in six repositories, each with one job — so you
-always know where to look. You are in **unreal-gold-vr-engine-research**.
+Everything for this game lives in one repository, one folder per job — so you
+always know where to look. You are in **`engine-research/`**.
 
-| Repository | What lives here |
+| Folder | What lives here |
 | --- | --- |
-| [unreal-gold-vr-mod](https://github.com/TefMeister/unreal-gold-vr-mod) | The mod itself — the VR render device + UnrealScript companion package. |
-| [unreal-gold-vr-dev-archive](https://github.com/TefMeister/unreal-gold-vr-dev-archive) | Full development history — snapshots, probes, dead ends, raw recon. |
-| [unreal-gold-vr-modding-notes](https://github.com/TefMeister/unreal-gold-vr-modding-notes) | Readable field notes / progress ledger. |
-| [unreal-gold-vr-staging](https://github.com/TefMeister/unreal-gold-vr-staging) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
-| **unreal-gold-vr-engine-research** ← you are here | Distilled engine reference (dossier) + reusable VR RE playbook. |
-| [unreal-gold-vr-external-research](https://github.com/TefMeister/unreal-gold-vr-external-research) | Ongoing public-research leads, gathered separately from hands-on modding work. |
+| [`mod/`](../mod/) | The mod itself — the VR render device + UnrealScript companion package. |
+| [`dev-archive/`](../dev-archive/) | Full development history — snapshots, probes, dead ends, raw recon. |
+| [`modding-notes/`](../modding-notes/) | Readable field notes / progress ledger. |
+| [staging/unreal-gold-vr](https://github.com/TefMeister/staging/tree/main/unreal-gold-vr) 🔒 | **Private** — unverified WIP builds, cross-machine handoff. |
+| **`engine-research/`** ← you are here | Distilled engine reference (dossier) + reusable VR RE playbook. |
+| [`external-research/`](../external-research/) | Ongoing public-research leads, gathered separately from hands-on modding work. |
 
 ## Status
 
