@@ -1,5 +1,23 @@
 # Research index
 
+**Last `/gr` pass: 2026-09-01 — CHECK-IN. Nothing new, and that is the finding.** Inbox empty. Two
+targeted searches against the dossier's live gaps, both returning honest negatives worth recording
+rather than a manufactured topic:
+
+- **§6's open TODO — *"study how the SDK's reference renderers derive their projection from
+  `FSceneNode` (FOV/FX/FY)"*** — has **no public technical write-up**. No article, forum post or
+  documentation covers `URenderDevice` / `FSceneNode` projection derivation. **The answer is not on
+  the web; it is in the 227k SDK already on disk**, which §2 identifies and which ships several
+  complete reference renderers as study material. Worth knowing before anyone spends a session
+  searching: this one is a reading task, not a research task.
+- **UE1 VR prior art: still none** `[checked 2026-09-01]`. Every search path leads back to UEVR,
+  which supports 4.8–5.x only. §11's "UEVR does not apply" and §12's greenfield assumption both
+  stand, re-validated as of today. UT99 Quest remains the only feasibility proof and remains
+  closed-source and Quest-only.
+
+No topic file was written, because neither result is a lead — they are confirmations that two
+load-bearing assumptions are still true.
+
 Every research topic gathered for this project, newest first. Each row links to a self-contained
 write-up in `topics/`. Status tags:
 
