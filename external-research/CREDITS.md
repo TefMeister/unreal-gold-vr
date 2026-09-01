@@ -33,6 +33,10 @@ own `CREDITS.md` for the full list of tools/prior-art the mod itself already dra
 | Source / Work | Creator(s) | Link |
 |---|---|---|
 | OldUnreal 227 patch — SDK version tracking (a newer public release, v227k_15, was flagged 2026-08-24 as worth evaluating; see INDEX.md) | Smirftsch and the OldUnreal community | https://www.oldunreal.com / https://github.com/OldUnreal |
+| `Unreal-PubSrc` — the public UnrealScript source for patch 227, in which `PlayerPawn.uc` shows the view event is script-implemented | Smirftsch and the OldUnreal community | https://github.com/OldUnreal/Unreal-PubSrc |
+| OldUnreal forums, "How to get a 'hello world' going in C++" — the native-package build and `Bound to <Package>.dll` binding procedure, plus modern-compiler fixes | `[]KAOS[]Casey` (procedure); `han` (compiler fixes) | https://www.oldunreal.com/phpBB3/viewtopic.php?t=3938 |
+| `ICBINDx11Drv` — README documenting the renderer's features, its UT 469 build target and its 227 extension support (study material only) | metallicafan212 | https://github.com/metallicafan212/ICBINDx11Drv |
+| BeyondUnreal wiki, "Customising the player view" — the general UE1/UE2 account of the player-view event as the single point of control | BeyondUnreal wiki contributors | https://beyondunrealwiki.github.io/pages/customising-the-player-view.html |
 
 AI development assistance: **Claude (Anthropic)** (https://www.anthropic.com).
 
