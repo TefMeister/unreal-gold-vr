@@ -38,9 +38,11 @@
 - **UE1 has no view matrix.** The renderer receives an `FSceneNode` per frame containing camera origin + `FCoords` (rotation basis) and FOV; geometry arrives pre-transformed or transformed via the scene node's coords. Stereo therefore comes from rendering the frame twice with per-eye camera origins/bases ("separation comes purely from where each eye sits" — confirmed approach from UT99 Quest).
 - Head tracking: inject HMD orientation into the view. Options (to be decided in our renderer): adjust the `FSceneNode` coords in the render device per eye, and/or drive `PlayerCalcView`/ViewRotation from the script/native side. XIII (UE2) precedent: overriding `PlayerCalcView` worked for head-look (FRotator = 65536 units/revolution — same convention in UE1; OpenVR yaw sign was negated in XIII, expect the same here).
 - Projection: FOV comes from the engine per-viewport; per-eye asymmetric projection must be built from the VR runtime's eye tangents. TODO: study how the SDK's reference renderers derive their projection from `FSceneNode` (FOV/FX/FY), then design our own per-eye frustum path.
+- **Per-eye camera = per-eye view-space translation (M2, 2026-09-02).** Because there is no view matrix, an eye at view-space `x = ∓h` sees every point at `x ± h`; `VRGoldDrv` adds one `EyeShiftX` constant to view-space X before the unchanged M1 projection and renders each world batch once per eye into half-width viewports (`staging/unreal-gold-vr/VRGoldDrv/Inc/VRGoldStereoMath.h`). `[verified-numerically 2026-09-02]` against `FTransform::Project` ground truth (70,550 checks, 3 mutations caught); `[compile-verified 2026-09-02]`; **not yet rendered** — see `modding-notes/2026-09-02-m2-stereo-proof-built-verified-deployed.md` for the one-command check. Convergence is deliberately not modelled (zero disparity at infinity = what a compositor wants).
 
 ## 7. Constant-buffer fill mechanism
 - Our own code (`VRGoldDrv`, written from scratch per the 2026-08-21 design revision — no fork), so no discovery needed — we control the cbuffers. Section repurposed: document our renderer's cbuffer layout for the per-eye transforms once written.
+- **World VS `cbuffer Projection : register(b0)` (32 bytes, one buffer per eye, `ProjCB[2]`), as of M2 2026-09-02 `[compile-verified]`:** `float2 Scale` (= `Proj.Z·2/Wv`, `Proj.Z·2/SizeY`), `float2 Offset` (maps `FX15+XB` / `FY15+YB` into NDC), `float2 Depth` (`z = Depth.x·ViewZ + Depth.y`, near 1 / far 65536), `float EyeShiftX` (per-eye view-space translation, 0 in mono), `float Pad`. Filled in `SetSceneNode`; bound per eye in `DrawWorldScratch`. Mono constants are bit-identical to the pre-M2 build (asserted by `Test/StereoMathTest.cpp`).
 
 ## 8. Pass inventory (by render target)
 - TODO from inside our renderer. Known from the URenderDevice contract: world surfaces (BSP `DrawComplexSurface`), meshes (`DrawGouraudPolygon`), HUD/menus (`DrawTile` — 2D, must be redirected to an in-world plane for VR), plus 227k post-FX (resolution scaling shader seen in logs).
@@ -49,6 +51,8 @@
 | command / cvar | effect | use |
 |---|---|---|
 | `TIMEDEMO 1` | fps counter | perf baseline |
+| `VRGOLD STEREO <0\|1\|2>` | our renderer: mono / SBS squashed / SBS cropped | M2 stereo proof `[compile-verified 2026-09-02]`, not yet run |
+| `VRGOLD IPD <units>` · `VRGOLD SWAPEYES <0\|1>` · `VRGOLD STATUS` | eye separation (Unreal units), cross-eye swap, print settings | same; INI equivalents `StereoMode`/`StereoIPD`/`StereoSwapEyes` under `[VRGoldDrv.VRGoldRenderDevice]` |
 | (to be filled as discovered) | | |
 
 ## 10. Autonomous harness recipe (this game)
@@ -65,5 +69,6 @@
 - ~~227k-compatible C++ SDK headers for building a render device~~ **RESOLVED 2026-08-21:** the official 227k SDK (see §2) ships the headers, `.lib` files, and CMake build; VS 2022 Build Tools + CMake confirmed present on the home PC.
 - **New risk from the no-fork decision (2026-08-21):** writing the D3D11 renderer from scratch (rather than forking ICBINDx11Drv) raises the M1 cost — a full BSP/mesh/tile renderer must reach visual parity before VR work starts. Mitigation: the URenderDevice surface is small (~15 required virtuals), the SDK includes several complete renderers to *study*, and M1 only requires correct flat rendering, not feature parity (no post-FX, no advanced options).
 - Decoupled weapon aim requires a script-side package plus a bridge to controller poses (227 native DLL binding) — mechanism confirmed to exist, details unproven.
-- Two-pass stereo cost on a 1998 BSP renderer with 2026 post-FX: unknown; dev-PC numbers are non-diagnostic by standing rule (judge on the home rig).
+- Two-pass stereo cost on a 1998 BSP renderer with 2026 post-FX: unknown; dev-PC numbers are non-diagnostic by standing rule (judge on the home rig). M2 (2026-09-02) implements the naive form — every world batch issued twice with a viewport + cbuffer switch — so the first measurement is now one launch away.
+- **World scale / IPD units (new 2026-09-02):** `StereoIPD=3.4` assumes ~52.5 UU per metre `[hypothesis]`; M3 must measure it in the headset before any comfort judgement.
 - HUD/menu (`DrawTile`) redirection to an in-world plane: known-solvable (UT99 Quest did it) but non-trivial.
