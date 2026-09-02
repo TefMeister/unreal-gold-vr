@@ -32,8 +32,24 @@ radius), 83 UU minimum door height, 24 UU maximum step, and offers both `1 foot 
   engine's own definition; treat it as 1.75–1.80 m and the scale falls out at 43–45 UU/m. Any
   stereo comfort tuning should be reported alongside the scale assumed.
 
+## Addendum (2026-09-02, corroborated by `/sr`'s independent cross-engine sweep)
+
+A second, independently-run research pass hit the same two Unreal Archive pages and drew the same
+44.6 UU/m figure from the 78-UU player height — two passes converging on the same number from the
+same primary source is worth recording as corroboration `[reported 2026-09-02, n=2 passes]`, not as
+new information. It also names the page's own headline line explicitly: *"There is no fixed relation
+between Unreal Units and real-world units such as meter or inch"* — the spread in the table above
+isn't measurement noise, it's the engine having no canonical scale, which is why M3's in-headset
+measurement is the only real answer and not just the preferred one.
+
+One genuinely new, cheap idea from that pass, worth doing **before** the M3 headset session: the
+player's own collision cylinder is 78 UU by the engine's own definition, so standing next to a
+doorway or an NPC in-headset and eyeballing whether that matches a 1.75–1.80 m person is a one-glance
+sanity check on whatever scale the M3 measurement lands on — no instrumentation, no extra build.
+
 ## Sources
 
 - https://unrealarchive.org/wikis/unreal-wiki/Unreal_Unit.html — the per-generation table
 - https://unrealarchive.org/wikis/unreal-wiki/Legacy:General_Scale_And_Dimensions.html — Unreal/UT99 dimensions
 - https://ut99.org/viewtopic.php?t=13301 · https://ut99.org/viewtopic.php?t=2273 — community discussions of the same numbers
+- https://wiki.beyondunreal.com/Unreal_Unit — BeyondUnreal's own mirror, cross-checked by the `/sr` pass against the same figures
