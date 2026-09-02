@@ -37,6 +37,8 @@ own `CREDITS.md` for the full list of tools/prior-art the mod itself already dra
 | OldUnreal forums, "How to get a 'hello world' going in C++" — the native-package build and `Bound to <Package>.dll` binding procedure, plus modern-compiler fixes | `[]KAOS[]Casey` (procedure); `han` (compiler fixes) | https://www.oldunreal.com/phpBB3/viewtopic.php?t=3938 |
 | `ICBINDx11Drv` — README documenting the renderer's features, its UT 469 build target and its 227 extension support (study material only) | metallicafan212 | https://github.com/metallicafan212/ICBINDx11Drv |
 | BeyondUnreal wiki, "Customising the player view" — the general UE1/UE2 account of the player-view event as the single point of control | BeyondUnreal wiki contributors | https://beyondunrealwiki.github.io/pages/customising-the-player-view.html |
+| Unreal Wiki mirror — "Unreal Unit" and "General Scale and Dimensions" (per-generation world scale) | Unreal Wiki contributors, mirrored by Unreal Archive | https://unrealarchive.org/wikis/unreal-wiki/Unreal_Unit.html |
+| Unreal units → metric discussions | UT99.org community | https://ut99.org/viewtopic.php?t=13301 |
 
 AI development assistance: **Claude (Anthropic)** (https://www.anthropic.com).
 
