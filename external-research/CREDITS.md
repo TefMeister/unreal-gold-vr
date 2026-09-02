@@ -39,6 +39,9 @@ own `CREDITS.md` for the full list of tools/prior-art the mod itself already dra
 | BeyondUnreal wiki, "Customising the player view" — the general UE1/UE2 account of the player-view event as the single point of control | BeyondUnreal wiki contributors | https://beyondunrealwiki.github.io/pages/customising-the-player-view.html |
 | Unreal Wiki mirror — "Unreal Unit" and "General Scale and Dimensions" (per-generation world scale) | Unreal Wiki contributors, mirrored by Unreal Archive | https://unrealarchive.org/wikis/unreal-wiki/Unreal_Unit.html |
 | Unreal units → metric discussions | UT99.org community | https://ut99.org/viewtopic.php?t=13301 |
+| BeyondUnreal wiki — "Unreal Unit" (cross-check mirror of the same per-generation scale figures) | BeyondUnreal wiki contributors | https://wiki.beyondunreal.com/Unreal_Unit |
+| OldUnreal/Unreal-testing GitHub Releases — v227k_12 through v227k_15 changelogs (fog/gamma survey) | Smirftsch and the OldUnreal community | https://github.com/OldUnreal/Unreal-testing/releases |
+| `ICBINDx11Drv_Settings.int` — `GammaMode`/`GammaOffset` setting definitions (study material only, per the project's no-fork rule) | metallicafan212 | https://github.com/metallicafan212/ICBINDx11Drv/blob/master/ICBINDx11Drv_Settings.int |
 
 AI development assistance: **Claude (Anthropic)** (https://www.anthropic.com).
 
