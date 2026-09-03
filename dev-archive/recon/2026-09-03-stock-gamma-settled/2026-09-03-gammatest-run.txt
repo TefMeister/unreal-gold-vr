@@ -1,0 +1,29 @@
+
+VRGoldDrv screenshot-gamma test
+
+1. brightness -> gamma, per UnICBINDDx11Drv.cpp:2495
+   Brightness 0.5 -> Gamma 1.000
+
+2. at the default Brightness the table is the identity
+
+3. the previous hardcoded Gamma=2.0 was a large brightening
+   Gamma 2.0: 128 -> 181, 64 -> 128, 32 -> 90
+
+4. curve vs independent ground truth, all 256 levels
+   Gamma 0.5: worst deviation 0 byte(s)
+   Gamma 0.8: worst deviation 0 byte(s)
+   Gamma 1.0: worst deviation 0 byte(s)
+   Gamma 1.2: worst deviation 0 byte(s)
+   Gamma 1.5: worst deviation 0 byte(s)
+   Gamma 2.0: worst deviation 0 byte(s)
+   Gamma 2.5: worst deviation 0 byte(s)
+   Gamma 3.0: worst deviation 0 byte(s)
+
+5. endpoints are preserved
+
+6. the table is monotonic non-decreasing
+
+7. degenerate gamma falls back to the identity
+
+GAMMA TEST PASSED: 2070 checks, 0 failures
+
