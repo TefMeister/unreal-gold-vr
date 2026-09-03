@@ -48,3 +48,20 @@ entirely undocumented.
   build requirements — https://github.com/metallicafan212/ICBINDx11Drv
 - OldUnreal, `Unreal-testing` v227k_12 release notes — ICBINDx11Drv's inclusion in the patch —
   https://github.com/OldUnreal/Unreal-testing/releases/tag/v227k_12
+
+## ✅ Outcome 2026-09-03 — "the SDK's copy is the authority" paid off (folded from `inbox/`)
+
+That point is exactly what let the modding side settle the stock gamma curve from source on disk
+(see the 2026-09-02 fog/gamma topic's outcome). Two further answers from the same read:
+
+- **The SDK ships no blank native-package template** — nothing template/example/sample-shaped at any
+  depth `[inferred-static 2026-09-03]`, so the VS-2008 forum recipe is not superseded by one.
+- **But `Emitter/` is a real script+native hybrid in the SDK** — 34 `.uc` under `Classes/`, 11
+  `.cpp` under `Src/`, built by the SDK's own current CMake — a working, modern, buildable example
+  of the exact mechanism, which beats a template. `Fire`, `ScriptedAI`, `UnrealShare` and `IpDrv`
+  are script-only and are **not** examples of it.
+- The 32-vs-64-bit caveat stays `[hypothesis]`: `Emitter` builds under CMake (default 64-bit) but has
+  not been built to confirm, and *script binding* at 64-bit is a different question.
+
+The §5 threading TODO is unchanged: still nobody's public question, still settled only by reading the
+SDK source or watching our own renderer.
