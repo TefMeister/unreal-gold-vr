@@ -1,12 +1,7 @@
 # Research index
 
-**Last `/gr` pass: 2026-09-02 (user-scoped run, second pass same day) — FULL.** Drained the one waiting
-`/sr` inbox drop (corroborating detail on the UE1 scale topic — folded in as an addendum, not a
-correction). New topic: the SDK v227k_12→v227k_15 changelog has no gamma-relevant fixes (only fog
-fixes in renderer code paths this project doesn't use), but the reference renderer's own `GammaMode`
-setting shows stock gamma is a *choice* between two algorithms, not one fixed curve — reframes the
-`bGammaCorrectOutput` open item. Pointer filed in `engine-research/inbox/`.
-_Previous: 2026-09-02 (estate sweep) — CHECK-IN_ (board + INDEX + dossier §6/§7/§11/§12; topics not
+**Last `/gr` pass: 2026-09-03 (estate sweep) — CHECK-IN** (board OPEN block + INDEX + the two gamma topics)**.** Inbox empty; my three drops are still unread in `engine-research/inbox/` and were left alone. **Attempted the `[PD]` gamma row and came up inconclusive — recorded rather than padded.** The 2026-09-02 pass established that `GammaMode` is a *choice* between imitating XOpenGLDrv or D3D9Drv, so "stock" is not one curve; this pass tried to pin the actual exponent by reading XOpenGLDrv's published source. Two dead ends worth recording so the next pass skips them: **GitHub code search now requires authentication**, so `search?q=…&type=code` returns a sign-in wall to any fetcher; and `XOpenGLDrv.int` does **not** carry the gamma option text (the repo landing page's mention of `GammaMultiplier` / `GammaOffsetScreenshots` points somewhere else, most likely `Src/`). ⚠️ That negative is unconfirmed by a positive control, so treat it as "not found here" rather than "absent". The remaining route is a direct read of a named file under `Src/`, or the SDK's own on-disk copy — which the 2026-09-01 topic already argues is the more trustworthy of the two.
+_Previous: **Last `/gr` pass: 2026-09-02 (user-scoped run, second pass same day) — FULL.** Drained the one waiting `/sr` inbox drop (corroborating detail on the UE1 scale topic — folded in as an addendum, not a correction). New topic: the SDK v227k_12→v227k_15 changelog …_
 re-read)**.** Inbox empty. M2 stereo was built and numerically verified on the home PC today, so the
 lane's job was the one `[hypothesis]` it introduced: **the UE1 world scale.** The Unreal Wiki's
 per-generation table puts Unreal/UT99 at **44.6 UU/m**, not the 52.5 folk constant (which fits
