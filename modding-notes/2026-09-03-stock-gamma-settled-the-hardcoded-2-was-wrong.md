@@ -20,12 +20,16 @@ project's study-don't-copy rule.
 
 - **The exponent is the brightness slider.** `Gamma = Viewport->GetOuterUClient()->Brightness * 2.0f`
   (`UnICBINDDx11Drv.cpp:2495`). Not a constant.
-- **The default mode is `GM_XOpenGL`** (enum value 0; `Inc/GammaModes.h` defines only that and
-  `GM_DX9 = 1`, with a third value commented out — so the `GM_PerObject` branch in the shader is
-  dead code). Its curve returns the input **unchanged when `Gamma == 1.0`**, else raises it to
-  `1/Gamma`.
+- **The default mode is `GM_XOpenGL`**, and explicitly so rather than by enum accident:
+  `Src/UnConfig.cpp:177` registers the property as
+  `AddByteProp(CPP_PROP(GammaMode), GM_XOpenGL, ...)`, and this install's `Unreal.ini` sets
+  `GammaOffset*` but **no `GammaMode` line at all**, so it takes that default. (`Inc/GammaModes.h`
+  defines only `GM_XOpenGL = 0` and `GM_DX9 = 1`, with a third value commented out — so the
+  `GM_PerObject` branch in the shader is dead code.) Its curve returns the input **unchanged when
+  `Gamma == 1.0`**, else raises it to `1/Gamma`.
 - **`Brightness` defaults to 0.5**, so `Gamma` is exactly **1.0**, so **stock applies no gamma at all
-  at default settings**. This machine's `Unreal.ini` line 194 reads `Brightness=0.500000`.
+  at default settings**. That 0.5 is the shipped default rather than a local quirk: `Brightness=0.500000`
+  appears in **`Default.ini`** as well as the live `Unreal.ini`, both at line 194.
 
 ## 2. So our 2.0 was not a small error
 
@@ -116,8 +120,10 @@ screenshot is only a reference once its gamma settings are recorded.
   added inside that same event and only in first person, so head-bob removal is one omitted line**,
   and FOV is script-reachable. §6's "and/or" is resolved to *both, at different layers*.
 - **`/gr` asked a question I could answer locally: does the SDK ship a blank native-package
-  template?** **No** `[inferred-static 2026-09-03]` — nothing template/example/sample-shaped exists
-  at any depth. **But `Emitter/` is a real script+native hybrid** (34 `.uc` under `Classes/`, 11
+  template?** **No** `[inferred-static 2026-09-03]` — a full-depth search for
+  template/example/sample/blank/skeleton returns only ogg documentation, an OpenAL sample config,
+  `Core/Inc/UnTemplate.h` (a C++ container header), Emitter's `TemplateMesh` art, alure's examples,
+  and two UnrealShare *script* sample classes. Nothing native-package-shaped. **But `Emitter/` is a real script+native hybrid** (34 `.uc` under `Classes/`, 11
   `.cpp` under `Src/`) built by the SDK's own current CMake, which is a better reference than a
   template: a working, modern, buildable example of the exact mechanism. `Fire`, `ScriptedAI`,
   `UnrealShare` and `IpDrv` are script-only and are not examples of it.
