@@ -70,3 +70,27 @@ hold that setting fixed, or the A/B comparison is comparing against a moving tar
 - https://github.com/OldUnreal/Unreal-testing/releases — release-by-release changelog, v227k_12 through v227k_15
 - https://github.com/metallicafan212/ICBINDx11Drv/blob/master/ICBINDx11Drv_Settings.int — `GammaMode`/`GammaOffset`/`GammaOffsetRed/Green/Blue` definitions (study material only, per the project's no-fork rule; nothing copied, only setting names and descriptions quoted)
 - https://www.oldunreal.com/patch/unreal/oldunreal/227ReleaseNotes.pdf — the 227 release notes PDF; fetched but did not yield extractable gamma text on this pass (image/stream-heavy), flagged for a future targeted look if the exact curve is ever needed
+
+## ✅ Outcome 2026-09-03 — the exponent came from the SDK on disk, not the web (folded from `inbox/`)
+
+This topic said no public source states the curve either `GammaMode` uses, and advised recording
+which mode stock had active before any A/B. Both were right — but the exponent did not need a public
+source: **the 227k SDK on disk ships `ICBINDx11Drv`'s full source**, so it was a read, not a search.
+`[inferred-static 2026-09-03]`
+
+- `Gamma = Client->Brightness * 2.0` (`UnICBINDDx11Drv.cpp:2495`) — the **brightness slider**, not a
+  constant.
+- `GM_XOpenGL` (the default, enum 0) returns its input **unchanged when Gamma == 1.0**, and
+  `Brightness` defaults to `0.5`, so **stock applies no gamma at all at defaults**.
+- Our `bGammaCorrectOutput` was `pow(x, 1/2.0)`, mapping mid-grey 128 → 181. **`[disproved]`**, fixed,
+  and covered by a new numeric test (2,070 checks, 0 failures).
+- The protocol fix adopted verbatim, now a `[FLAT]` row: record stock's `GammaMode` **and**
+  `Brightness` before comparing anything.
+- ⚠️ Extra, found while reading: `ResScaling_PX.hlsl` calls
+  `DX9Gamma(TexColor, GammaOffsetRed, GammaOffsetBlue, GammaOffsetGreen)` against a signature that
+  applies its arguments in `(r, g, b)` order — **stock swaps the green and blue exponents in DX9
+  mode.** Invisible while the per-channel offsets are equal (the default). `[inferred-static 2026-09-03]`
+
+The "look at the 227 Release Notes PDF again" follow-up above is therefore **retired** — the SDK
+source is the authority, exactly as the 2026-09-01 `ICBINDx11Drv` topic argued. Full write-up:
+`modding-notes/2026-09-03-stock-gamma-settled-the-hardcoded-2-was-wrong.md`.
