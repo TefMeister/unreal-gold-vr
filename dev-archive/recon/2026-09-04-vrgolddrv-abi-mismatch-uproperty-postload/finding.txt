@@ -1,0 +1,10 @@
+VRGoldDrv.dll ABI mismatch vs the deployed engine, dev PC, 2026-09-04.
+On launch with GameRenderDevice=VRGoldDrv.VRGoldRenderDevice, Windows loader error:
+  'The procedure entry point ?PostLoad@UProperty@@UEAAXXZ could not be located in the
+   dynamic link library D:\nonSteam\UnrealGold\System64\VRGoldDrv.dll.'
+= UProperty::PostLoad (MSVC x64 mangled). VRGoldDrv imports it from the engine Core, but this
+  deployed Core does not export that symbol -> driver DLL fails to load -> no render device.
+VRGoldDrv.dll: 198144 bytes, PE32+ x86-64, present and well-formed - the issue is ABI/version,
+  not a missing/corrupt file. Built against a different engine/SDK sub-version than deployed here.
+Dialog cascaded (dismiss -> respawn); process was force-terminated (no render device, no menu,
+  graceful WM_CLOSE blocked by the modal loop). Renderer reverted to stock ICBINDx11Drv.
