@@ -1,0 +1,15 @@
+driver : build/Release/VRGoldDrv.dll
+engine : D:/nonSteam/UnrealGold/System64
+
+imports: 207 symbol(s) across 6 DLL(s)
+  Core.dll          100 imported,  2846 exported, 0 MISSING
+  D3DCOMPILER_47.dll    1 imported  -- not in System64 (system DLL), skipped
+  Engine.dll         23 imported,  4770 exported, 0 MISSING
+  KERNEL32.dll       77 imported  -- not in System64 (system DLL), skipped
+  USER32.dll          5 imported  -- not in System64 (system DLL), skipped
+  d3d11.dll           1 imported  -- not in System64 (system DLL), skipped
+
+OK: every imported engine symbol is exported by the deployed engine.
+    The loader will not reject this driver for a missing entry point.
+    It does NOT follow that the driver works -- a signature change behind an
+    unchanged mangled name is invisible here and would still fail at runtime.

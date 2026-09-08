@@ -1,0 +1,15 @@
+driver : D:/nonSteam/UnrealGold/System64/VRGoldDrv.dll.bak-2026-09-08-v227k_12-abi-broken
+engine : D:/nonSteam/UnrealGold/System64
+
+imports: 207 symbol(s) across 6 DLL(s)
+  Core.dll          100 imported,  2846 exported, 1 MISSING
+      ?PostLoad@UProperty@@UEAAXXZ
+  D3DCOMPILER_47.dll    1 imported  -- not in System64 (system DLL), skipped
+  Engine.dll         23 imported,  4770 exported, 0 MISSING
+  KERNEL32.dll       77 imported  -- not in System64 (system DLL), skipped
+  USER32.dll          5 imported  -- not in System64 (system DLL), skipped
+  d3d11.dll           1 imported  -- not in System64 (system DLL), skipped
+
+FAIL: 1 symbol(s) imported but not exported. The loader WILL reject this DLL,
+      exactly as it did on 2026-09-04. Rebuild against the SDK matching the deployed
+      engine -- and note that only v227k_12 and v227k_15 ship SDKs at all.

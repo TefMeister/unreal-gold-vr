@@ -19,3 +19,12 @@
 # Local scratch
 /tmp/
 *.log
+
+# ...but recon evidence logs are DERIVED DATA, not scratch run logs. The blanket
+# `*.log` above silently swallowed this project's 2026-09-08 ABI evidence — the
+# before/after `check-abi` logs, which ARE the proof the loader error is fixed.
+# `git add` skipped them without complaint, exactly as it did for doom-2016-vr,
+# the-evil-within-vr and enslaved-vr on 2026-08-31. Caught here only because the
+# staged numstat was read before committing. Negate the rule for recon/.
+!dev-archive/recon/**/*.log
+!recon/**/*.log
