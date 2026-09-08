@@ -107,3 +107,56 @@ is the class of change that produces exactly this `UProperty::PostLoad` symptom.
   lists and sizes, read via the GitHub API 2026-09-05. Credit: **OldUnreal** (the 227 patch team).
 - This project's own `topics/2026-09-02-sdk-227k15-vs-227k12-fog-gamma-changes.md` (the verdict
   re-scoped above) and `engine-research/ENGINE-DOSSIER.md` §1, §2 and the 2026-09-04 ABI entry.
+
+
+---
+
+## ✅ Outcome — acted on and confirmed, 2026-09-08 (`/pd`, dev PC, no launch)
+
+Folded in by `/gr` on 2026-09-08 from `external-research/inbox/`.
+
+**The ⭐ call above held, and the "trivial branch" was the right one.** The v227k_15 SDK was
+downloaded — `OldUnreal-UnrealPatch227k-SDK-Windows.zip`, **26,611,815 B**, exactly the size
+recorded above — `VRGoldDrv` was rebuilt against it, and the ABI check went from **1 missing
+symbol to 0**. Deployed and stamped. The API read reproduced exactly: only `v227k_12` and
+`v227k_15` carry an SDK asset `[verified-live 2026-09-08, n=1 API read]`.
+
+### ⚠️ How the version was actually settled — both checks proposed here were unavailable
+
+This topic settled the version by **date arithmetic** (build 2026-08-15 against v227k_15 published
+2026-08-16) and proposed confirming it by reading `Unreal.log`'s banner or `Core.dll`'s version
+resource. **Neither was available on the machine:** the log is 0 bytes, and neither engine DLL
+carries a version resource.
+
+It was settled a third way instead, and a stronger one — by the ABI's own behaviour rather
+than by metadata about it:
+
+| | has `?PostLoad@UProperty@@UEAAXXZ` |
+| --- | --- |
+| v227k_12 `Core.lib` | yes |
+| v227k_15 `Core.lib` | no |
+| **deployed `Core.dll`** | **no** |
+
+`[verified-numerically 2026-09-08]` — the deployed engine agrees with v227k_15 on exactly the
+symbol that broke.
+
+**Generalisable lesson, worth reaching for first next time:** when a version must be pinned, a
+symbol that is present in one candidate and absent in another is an independent *use* of the ABI;
+a log banner or a version resource is a second reading of the same publication metadata, and may
+simply not be there.
+
+⚠️ **What this does not establish.** It is not proof the deployed build is v227k_15 in
+every respect — neither SDK's symbol set is a subset of the deployed exports (107 and 132
+symbols respectively are absent), which is normal for an import library from a different build.
+What is established is the part that mattered: **the driver's 123 engine imports all resolve.**
+
+### ✅ The `[inferred-static]` "restructured, not patched" reading is confirmed
+
+Inferred here from the asset rename plus the halved size; confirmed on disk. The import libraries
+**moved**, `<Package>/Lib64/` → `<Package>/Lib/x64/`, and `CMakeLists.txt` had to be taught
+both layouts.
+
+### What is left is not a research question
+
+The rebuild proves the loader will accept the driver. **Whether it renders is `[FLAT]` and
+unchanged.** Nothing in this topic needs further searching.
