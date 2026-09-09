@@ -55,8 +55,10 @@
 | command / cvar | effect | use |
 |---|---|---|
 | `TIMEDEMO 1` | fps counter | perf baseline |
-| `VRGOLD STEREO <0\|1\|2>` | our renderer: mono / SBS squashed / SBS cropped | M2 stereo proof `[compile-verified 2026-09-02]`, not yet run |
-| `VRGOLD IPD <units>` · `VRGOLD SWAPEYES <0\|1>` · `VRGOLD STATUS` | eye separation (Unreal units), cross-eye swap, print settings | same; INI equivalents `StereoMode`/`StereoIPD`/`StereoSwapEyes` under `[VRGoldDrv.VRGoldRenderDevice]` |
+| `VRGOLD STEREO <0\|1\|2>` | our renderer: mono / SBS squashed / SBS cropped | **M2 PROVEN LIVE** `[verified-live 2026-09-09, n=1 launch]` — modes 0 and 1 exercised, both take effect with no relaunch; **mode 2 still unexercised** |
+| `VRGOLD IPD <units>` · `VRGOLD SWAPEYES <0\|1>` · `VRGOLD STATUS` | eye separation (Unreal units), cross-eye swap, print settings | all three `[verified-live 2026-09-09]`. ⚠️ **`STATUS` prints to `Unreal.log` ONLY — nothing appears on screen**, which reads as a dead command. ⚠️ The INI equivalents exist as `CPF_Config` properties but the driver writes **no** `[VRGoldDrv.VRGoldRenderDevice]` section on exit, so nothing persists: every launch starts mono at IPD 2.85 |
+| **`Tab`** | **opens the console.** `User.ini` line 49 `Tab=Type` | ⚠️ **`Tilde` is UNBOUND** (`User.ini` line 168, `Tilde=`) — see §11 |
+| `open <map>` · `exit` | load a level · graceful shutdown | `open Vortex2` goes straight from the attract demo to live gameplay with a HUD, skipping every menu `[verified-live 2026-09-09]` |
 | (to be filled as discovered) | | |
 
 ## 10. Autonomous harness recipe (this game)
@@ -65,6 +67,23 @@
 - Frame capture: TODO (our renderer can write screenshots directly — we own the swap chain).
 
 ## 11. Dead ends & false leads (save future time)
+
+- **⛔️ 2026-09-09 (`/lm`, home PC): the console key is `Tab`. `Tilde` is UNBOUND, and pressing it fails SILENTLY AND MISLEADINGLY.**
+  `User.ini` line 49 is `Tab=Type`; line 168 is `Tilde=` with no value. With no console open the typed
+  command goes to the game **as key bindings** — `R=TeamTalk` (line 128) opens the chat prompt and the
+  remaining letters land in it, so the screen shows something like `TeamSay gold status`. That reads as
+  *"the console mangled my command"* when the truth is *"the console never opened"*, and it cost two
+  rounds. `[verified-live 2026-09-09]` Same family as `doom-2016-vr`'s scan-`0x29` keyboard-layout trap:
+  **on UE1, read `User.ini` for the binding before assuming a key.**
+- **✅ 2026-09-09 CORRECTION to the "`Unreal.log` is 0 bytes" reading (§1, 2026-09-08).** The log is not
+  broken and not disabled — it is **buffered**, 0 bytes for the whole run and written in full the instant
+  the process exits. **Every console command and its reply is in there** as a `Cmd:` / `Console:` line
+  pair, so the driver's output is completely readable, just afterwards rather than live. What the 09-08
+  entry concluded (the version banner cannot be read from it *during* a session) stands; what it should
+  not be read as is "the log is useless". `[verified-live 2026-09-09]`
+- **⚠️ The console input line KEEPS ITS PREVIOUS TEXT between opens.** Send backspaces before typing or a
+  retry appends to the abandoned string — `Cmd: vrgold ipd 2vrgold ipd 2.85` is in the 2026-09-09 log for
+  exactly that reason. `[verified-live 2026-09-09]`
 - **2026-08-21, ini wipe:** the first-run wizard can leave `Unreal.ini` as a near-empty stub (only the wizard's own writes), which crashes every later launch with `Can't find ini:Engine.Engine.GameEngine`. The accompanying "Not enough memory resources" GetLastError is a red herring. Fix: restore `Unreal.ini` from `Default.ini` (both `SYSTEM\` and `System64\`), re-apply renderer/audio picks, set `FirstRun=227`.
 - **✅ SETTLED 2026-09-03 (`/pd`, static, from the SDK's own sources): our screenshot gamma of 2.0 was wrong, and would have corrupted the fog-brightness calibration.** `ReadPixels(..., bGammaCorrectOutput)` applied a hardcoded `pow(x, 1/2.0)`, recorded as a `[hypothesis]` needing a check against stock. Checked, and **`[disproved 2026-09-03]`**. What stock ICBINDx11Drv actually does `[inferred-static 2026-09-03]`:
   - `Gamma = Viewport->GetOuterUClient()->Brightness * 2.0f` (`UnICBINDDx11Drv.cpp:2495`) — the exponent is driven by the **brightness slider**, not by a constant.
