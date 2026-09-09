@@ -1,0 +1,134 @@
+﻿Log: Log file open, 09/09/26 21:38:27
+Init: Name subsystem initialized
+Init: Version: 227 Subversion: 11
+Init: Compiled: Aug 15 2026 13:48:22
+Init: Command line: 
+Init: Base directory: C:\nonSteam\UnrealGold\System64\
+Init: Character set: Unicode
+Log: Bound to Engine.dll
+Log: Bound to Core.dll
+Log: Bound to Window.dll
+Init: Object subsystem initialized
+Init: OS: Windows
+Init: Computer: RTX
+Init: User: TD3KX
+Init: Memory total: Phys=33319232K Pagef=37120320K Virt=-128K
+Init: Working set: 32000 / 159000
+Init: Timer Frequency=3494.401785 MHz - Timing Source = RDTSC
+Init: CPU Page size=4096, Processors / Cores=20
+Init: CPU Detected: Intel(R) Core(TM) i5-14600K
+Init: CPU Features: MMX SSE SSE2 SSE3 SSSE3 SSE41 SSE42
+Log: Not forcing CPU affinity.
+Init: Unreal engine initialized
+Log: Bound to PhysXPhysics.dll
+PhysX: Initializing PhysX physics engine (ver 4.1.2)!
+Log: Bound to Fire.dll
+Log: Bound to WinDrv.dll
+Init: Enhanced Pointer Precision Disabled
+Init:    display (Primary Display Driver)
+Init: DirectDraw initialized successfully
+Init: Initializing Mouse Input Handler: Raw Input
+Init: Client initialized
+Log: Bound to Render.dll
+Init: Lighting subsystem initialized
+Init: Rendering initialized
+Log: LoadMap: EntryIII.unr
+Warning: Failed to load EntryIII.unr: Can't find file EntryIII.unr..
+Warning: Failed to load "Level None.MyLevel": Can't find file EntryIII.unr..
+Log: LoadMap: Entry
+Log: Bringing Level Entry.MyLevel up for play (0)...
+ScriptLog: InitGame: 
+ScriptLog: Difficulty 1
+ScriptLog: Base Mutator is Entry.Mutator
+Log: Browse: Unreal.unr?Name=Player?Class=UnrealI.FemaleOne
+Log: LoadMap: Unreal.unr?Name=Player?Class=UnrealI.FemaleOne
+Log: Bringing Level Unreal.MyLevel up for play (0)...
+ScriptLog: InitGame: ?Name=Player?Class=UnrealI.FemaleOne
+ScriptLog: Difficulty 1
+ScriptLog: Base Mutator is Unreal.Mutator
+Log: Bound to IpDrv.dll
+Log: Possessed PlayerPawn: FemaleOne Unreal.FemaleOne
+ServerLog: All inventory from Player is accepted
+Init: Input system initialized for WindowsViewport
+Log: Opened viewport
+Log: Bound to VRGoldDrv.dll
+Init: VRGoldDrv: Init 1280x720 colorbytes=4 fullscreen=0
+Init: VRGoldDrv: window client 1280x720 vs requested 1280x720
+Init: VRGoldDrv: D3D11 device + swap chain + tile/world pipelines ready (1280x720)
+Init: VRGoldDrv: stereo config StereoMode=0 StereoIPD=2.850000 StereoSwapEyes=0 -> 1 eye(s)
+Log: Bound to ALAudio.dll
+Init: ALAudio: Trying to autodetect HRTF. Note: Autodetection may only work with USB headphones.
+Init: ALAudio: We are using OpenAL device: OpenAL Soft 
+Init: ALAudio: OutputRateNum 5(44100 Hz) SampleRateNum 5 (44100 Hz)
+Init: ALAudio: Audio hardware supports 255 mono (usually sound) and 1 stereo (usually music) sources.
+Init: ALAudio: auto matched SampleRate (44100 Hz) to OutputRate (44100 Hz).
+Init: ALAudio: OpenALSoft extension ALC_SOFT_HRTF found.
+Init: ALAudio: HRTF is disabled.
+Init: OpenAL Effects extension version 1.0 found.
+Init: ALAudio: EFX initialized.
+Init: ALAudio: Version 1.1 ALSOFT 1.24.3 found
+Init: ALAudio subsystem initialized.
+Init: Game engine initialized
+Log: Startup time: 0.741448 seconds
+Warning: FIREWALL: Freed Windows Firewall Object
+Init: VRGoldDrv: tile frame XB=0 YB=0 X=1280 Y=720 (window 1280x720)
+ScriptLog: Creating root window: UMenu.UMenuRootWindow
+Cmd: TeamSay gold status
+ChatLog: Player: gold status
+Cmd: TeamSay gold status
+ChatLog: Player: gold status
+Cmd: vrgold status
+Console: VRGoldDrv: 1280x720 StereoMode=0 StereoIPD=2.850000 StereoSwapEyes=0 eyes=1 frame 40168
+Cmd: open vortex2
+Log: SetClientTravel: vortex2 Items: False
+Log: Browse: vortex2?Name=Player?Class=UnrealI.FemaleOne
+Log: LoadMap: vortex2?Name=Player?Class=UnrealI.FemaleOne
+AdminAccessManager: Administrator Player logged out
+Log: Bringing Level Vortex2.MyLevel up for play (0)...
+ScriptLog: InitGame: ?Name=Player?Class=UnrealI.FemaleOne
+ScriptLog: Difficulty 1
+ScriptLog: Base Mutator is Vortex2.Mutator
+Log: Spawning new actor for Viewport WindowsViewport
+Log: Possessed PlayerPawn: FemaleOne Vortex2.FemaleOne
+ServerLog: All inventory from Player is accepted
+Cmd: vrgold stereo 1
+Console: VRGoldDrv: StereoMode=1 -> 2 eye(s)
+Cmd: vrgold ipd 20
+Console: VRGoldDrv: StereoIPD=20.000000
+Cmd: vrgold swapeyes 1
+Console: VRGoldDrv: StereoSwapEyes=1
+Cmd: vrgold swapeyes 0
+Console: VRGoldDrv: StereoSwapEyes=0
+Cmd: vrgold ipd 2vrgold ipd 2.85
+Console: VRGoldDrv: StereoIPD=2.000000
+Cmd: vrgold stereo 0
+Console: VRGoldDrv: StereoMode=0 -> 1 eye(s)
+Cmd: exit
+Console: Closing by request
+Log: appRequestExit(0) Closing by request: QUIT
+Exit: Preparing to exit.
+Log: Unbound to Engine.dll
+Log: Unbound to Core.dll
+Log: Unbound to Window.dll
+Exit: Game engine shut down
+Log: Unbound to PhysXPhysics.dll
+Exit: Shutting down PhysX physics engine.
+Log: Unbound to Fire.dll
+Log: Unbound to WinDrv.dll
+Log: DirectDraw End Mode
+Log: Flushing cache
+Exit: DirectDraw released
+Exit: Windows client shut down
+Log: Unbound to Render.dll
+Exit: Lighting subsystem shut down
+Exit: Rendering shut down
+Exit: VRGoldDrv: Exit after 80156 frames (221 cached textures)
+Log: Unbound to IpDrv.dll
+Log: Unbound to VRGoldDrv.dll
+Log: Unbound to ALAudio.dll
+Exit: ALAudio: subsystem shut down.
+Exit: ALAudio: Audio subsystem shut down.
+Exit: Object subsystem successfully closed.
+Exit: Shutdown multi-threading took 0.23 MS
+Exit: Exiting.
+Exit: Allocation checking disabled
