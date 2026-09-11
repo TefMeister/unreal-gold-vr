@@ -54,6 +54,29 @@ even just inspired anything used in this project and you aren't credited
 here, please **open a GitHub issue on this repo** and we'll correct it as
 soon as possible. We would much rather over-credit than leave anyone out.
 
+## Added by the 2026-09-11 research pass
+
+For the `FSceneNode` / `DrawTile` findings behind
+`topics/2026-09-11-fscenenodes-sub-rect-is-the-eye-and-drawtile-never-knew-about-the-window.md`:
+
+- **Magnus Norddahl (dpjudas)** — *UT99VulkanDrv* (including the vendored Unreal 226 Gold engine headers
+  that made the render-device contract readable at all) and *SurrealEngine*, whose `RenderCanvas`,
+  `VisibleSprite` and `VisibleCorona` are what separated the HUD path from the world-billboard path.
+- **Smirftsch** and the **OldUnreal** team — *XOpenGLDrv*, whose `SetSceneNode` and `DrawTile` are the
+  clearest demonstration that a UE1 device draws relative to the current frame rather than the window;
+  the OldUnreal wiki for the v227 video-renderer documentation and the `NoDrawTile` switch; and the 227
+  patch itself, without which this project would not exist.
+- **mmdanggg2**, building on **Chris Dohnal**'s D3D9Drv — *D3D9DrvRTX*, for the alternative `DrawTile`
+  idiom and for replacing the `URender` subsystem to promote sprites into real world geometry, which is
+  the closest existing template for what a stereo device needs.
+- **Han** (OldUnreal) — the 2016 rendering-redesign thread, for the strongest available evidence about
+  how the retail renderer submits sprites.
+- **GhwstVR** — *UT99 Quest*, for the quad 2D layer, the reverse-mapped controller pointer, and the
+  honest note on its per-eye draw cost.
+- **the Khronos OpenXR Working Group** — the `XrCompositionLayerQuad` specification.
+- **Epic Games** — the original engine, whose own `FSceneNode` sub-rect mechanism turned out to be the
+  answer.
+
 ## Respecting creators
 
 This project exists because other people generously shared their
