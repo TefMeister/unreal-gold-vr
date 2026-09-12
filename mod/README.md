@@ -5,9 +5,17 @@ head tracking, and motion-controlled weapon aim, built on the
 [OldUnreal 227k](https://www.oldunreal.com) patch. SteamVR first, OpenXR to
 follow.
 
-> **Status: work in progress — nothing playable is released yet.** This
-> repository will hold releases only; watch it if you want to know the moment
-> there is something to try.
+> ### ⚠️ Status: **v0.1.0-alpha released — EARLY DEVELOPMENT, not ready for a playthrough.**
+>
+> It fuses into real 3D in a headset and the world is life-size at `StereoIPD=1.0`,
+> but explosions, projectile sprites and the HUD are still drawn once across the
+> whole window instead of once per eye, and there is no head tracking yet.
+>
+> 🤢 **Caution: may cause severe motion sickness and discomfort.** Play seated,
+> keep it short, take the headset off at the first sign of discomfort. This
+> caution stays until the mod is confirmed genuinely comfortable to play.
+>
+> Get it from the [**Releases page**](https://github.com/TefMeister/unreal-gold-vr/releases).
 
 ## What this will be
 
