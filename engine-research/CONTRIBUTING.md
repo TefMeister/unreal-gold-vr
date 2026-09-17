@@ -43,7 +43,10 @@ ownership or explain why. Likewise, if you should be credited and aren't, tell u
 
 ## Legal footing
 
-Non-commercial fan work. Using or building any of our mods requires **owning a legitimate copy** of
-the game in question, and we **redistribute no original assets**. The reverse-engineering
+Non-commercial fan work. Using or building this mod needs **a legitimate copy of Unreal Gold**, which
+is **free**: OldUnreal's official installer downloads it
+(https://www.oldunreal.com/downloads/unreal/full-game-installers/), and the patch this mod needs is
+OldUnreal's `v227k_15` (https://github.com/OldUnreal/Unreal-testing/releases/tag/v227k_15). We
+**redistribute no original assets**. The reverse-engineering
 techniques involved (DLL proxying, hooking, injection, memory patching) resemble malware only in
 tooling; the context is personal modding of games we own.

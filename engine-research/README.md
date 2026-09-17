@@ -56,8 +56,9 @@ for the current phase and open risks.
 
 ## Scope, ethics, and legality
 
-- This is a **non-commercial fan project**. It requires owning a legitimate copy
-  of the game and **redistributes no original game assets** — only files we
+- This is a **non-commercial fan project**. It needs a legitimate copy of the
+  game, which is free from [OldUnreal](https://www.oldunreal.com/downloads/unreal/full-game-installers/)
+  (plus their [`v227k_15` patch](https://github.com/OldUnreal/Unreal-testing/releases/tag/v227k_15)), and **redistributes no original game assets** — only files we
   create. See [`.gitignore`](.gitignore).
 - This particular project builds against published plugin interfaces and
   MIT/publicly licensed source — no reverse-engineering tooling is required for
