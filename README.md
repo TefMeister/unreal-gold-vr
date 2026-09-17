@@ -1,5 +1,11 @@
 # unreal-gold-vr
 
+> ### ⏸️ Paused (2026-09-17)
+>
+> **There is already a VR mod for Unreal Gold: [Unreal Revived](https://www.moddb.com/mods/unreal-revived)** on ModDB. Use that one.
+>
+> Work on this project is paused. If it resumes, it will build on top of Unreal Revived (so Unreal Revived would be required), rather than compete with it.
+
 **Unreal Gold** — a flat-to-VR modding project.
 
 Consolidated on 2026-08-30: each folder below used to be one of this project's
