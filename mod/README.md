@@ -36,9 +36,14 @@ and the cross-engine
 
 ## What you will need
 
-- Your own legitimate copy of **Unreal Gold** (this mod contains **no** game
-  files).
-- The free **OldUnreal 227k** patch.
+- **Unreal Gold** — free. OldUnreal's official installer downloads the game for
+  you: [oldunreal.com → Unreal full-game installers](https://www.oldunreal.com/downloads/unreal/full-game-installers/)
+  (Windows file: `Unreal_Gold.exe`). This mod contains **no** game files.
+- The free **OldUnreal 227k patch, release `v227k_15`** — the mod is built
+  against exactly this release and will not load on an older one. The installer
+  above normally applies the newest patch for you; if your game is older, get it
+  here: [OldUnreal Unreal patch v227k_15](https://github.com/OldUnreal/Unreal-testing/releases/tag/v227k_15)
+  (Windows file: `OldUnreal-UnrealPatch227k-Windows.exe`).
 - A PC VR headset via **SteamVR** (Quest over Link/Virtual Desktop works).
 
 ## The folders for Unreal Gold VR
@@ -57,8 +62,8 @@ always know where to look. You are in **`mod/`**.
 
 ## Credits, scope, and legality
 
-Non-commercial fan project; requires an owned copy; redistributes no original
-assets. We credit everyone whose work this builds on — see
+Non-commercial fan project; needs a legitimate copy of Unreal Gold (free from
+OldUnreal, linked above); redistributes no original assets. We credit everyone whose work this builds on — see
 [`CREDITS.md`](CREDITS.md) — and we honour correction/removal requests from
 rights holders promptly.
 
