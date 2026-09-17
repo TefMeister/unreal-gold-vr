@@ -1,5 +1,11 @@
 # Unreal Gold VR
 
+> ### ⏸️ Paused (2026-09-17)
+>
+> **There is already a VR mod for Unreal Gold: [Unreal Revived](https://www.moddb.com/mods/unreal-revived)** on ModDB. Use that one.
+>
+> Work on this project is paused. If it resumes, it will build on top of Unreal Revived (so Unreal Revived would be required), rather than compete with it.
+
 A VR conversion mod for **Unreal Gold (1998)** — true stereo rendering, 6DOF
 head tracking, and motion-controlled weapon aim, built on the
 [OldUnreal 227k](https://www.oldunreal.com) patch. SteamVR first, OpenXR to
