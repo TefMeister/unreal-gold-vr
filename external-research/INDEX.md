@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: it lists this project's external research as a studied source; no other UE1 entry. Nothing new.
+**Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Nothing new. Paused (Unreal Revived); its 0.9.0 release was filed separately today; board OPEN is none.
+
+_Previous: **Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: it lists this project's external research as a studied source; no other UE1 entry. Nothing new._
 
 _Previous: **Last `/gr` pass: 2026-09-11 (estate sweep) — FULL** (board `OPEN` block after two headset runs, INDEX, one delegated source hunt across four open-source UE1 render devices)**.** Inbox empty. **One new topic, and it answers the ⭐⭐ `[PD]` row by reframing it.** The UE1 render-device interface has no eye concept — but `FSceneNode` carries a **sub-rect** (`XB`/`YB`/`X`/`Y`), the engine's own mechanism for editor panes and mirrors, and **both XOpenGLDrv and UT99VulkanDrv position tiles relative to the current frame's centre inside the current frame's viewport, never the window.** So the fix is architectural rather than a loop inside `DrawTile`: hand the engine a half-width `FSceneNode` per eye. ⭐ It also surfaces **a defect that was not on the board** — `Draw2DLine` and `Draw2DPoint` have the identical problem — and gives **two cheap classification tests** (log `Z` and `Span`; or run stock with XOpenGLDrv's `NoDrawTile`). The end state is the 2D layer as a world quad, shared with `XIII2003-vr`. ⚠️ And a finding worth its own line: **no public UE1 or UE2 render device does stereo**, so `VRGoldDrv` has no precedent — and no recorded reason it cannot work. Dossier pointer filed to `engine-research/inbox/`._
 
