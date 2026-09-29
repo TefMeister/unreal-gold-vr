@@ -125,3 +125,8 @@
 - Two-pass stereo cost on a 1998 BSP renderer with 2026 post-FX: unknown; dev-PC numbers are non-diagnostic by standing rule (judge on the home rig). M2 (2026-09-02) implements the naive form — every world batch issued twice with a viewport + cbuffer switch — so the first measurement is now one launch away.
 - **World scale / IPD units (updated 2026-09-03):** the public UE1 figure is **~44.6 UU/m** (13.6 UU/ft, from the 78-UU player collision height; the Unreal Wiki's own per-generation table) `[reported 2026-09-02]`, not the 52.5 UU/m folk constant, which is closer to UT2003/4. So 64 mm ≈ **2.85 UU**, and the previous `StereoIPD=3.4` default was 15–25% wide — a slightly miniaturised world. **Default changed to 2.85** `[reported]`; M3 still measures it in the headset, this only moves the starting point and names its source.
 - HUD/menu (`DrawTile`) redirection to an in-world plane: known-solvable (UT99 Quest did it) but non-trivial.
+
+## Inbox folds, 2026-09-29
+
+**Hand the engine a half-width `FSceneNode` per eye and `DrawTile` fixes itself (`/gr` 2026-09-11).** The UE1 render-device contract (Unreal 226 Gold headers, vendored in dpjudas's UT99VulkanDrv) has no eye concept; every call's only spatial context is the `FSceneNode`, whose `XB, YB` are the offset of the active viewport, so a per-eye sub-rectangle node makes `DrawTile` land in the right half without special-casing `[reported]`. The project is paused for Unreal Revived (WATCHING.md). Topic: `external-research/topics/2026-09-11-fscenenodes-sub-rect-is-the-eye-and-drawtile-never-knew-about-the-window.md`.
+
