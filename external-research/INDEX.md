@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Nothing new. Paused (Unreal Revived); its 0.9.0 release was filed separately today; board OPEN is none.
+**Last `/gr` pass: 2026-10-04 (estate sweep, second pass) — CHECK-IN.** PAUSED (another VR mod). Watch check: Unreal Revived still 0.9.0 (a branding commit on 2026-09-30). Nothing new.
+
+_Previous: **Last `/gr` pass: 2026-09-29 (estate sweep) — CHECK-IN.** Nothing new. Paused (Unreal Revived); its 0.9.0 release was filed separately today; board OPEN is none._
 
 _Previous: **Last `/gr` pass: 2026-09-23 (estate sweep) — CHECK-IN.** Checked phunkaeg's *VR Modding Playbook*: it lists this project's external research as a studied source; no other UE1 entry. Nothing new._
 
