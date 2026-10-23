@@ -1,6 +1,8 @@
 # Research index
 
-**Last `/gr` pass: 2026-10-11 (estate sweep) — CHECK-IN.** Inbox empty. Re-checked the other VR mod on WATCHING.md: no change since the row was last updated. Nothing new.
+**Last `/gr` pass: 2026-10-23 (estate sweep) — CHECK-IN.** Inbox empty. Re-checked the other VR mod on WATCHING.md: Unreal Revived still at 0.9.0 (2026-09-25), last push 2026-09-30. Nothing new.
+
+_Previous: **Last `/gr` pass: 2026-10-11 (estate sweep) — CHECK-IN.** Inbox empty. Re-checked the other VR mod on WATCHING.md: no change since the row was last updated. Nothing new._
 
 _Previous: **Last `/gr` pass: 2026-10-07 (estate sweep) — CHECK-IN.** PAUSED (another VR mod). Watch check: Unreal Revived still 0.9.0; one infographic commit 2026-09-30. Nothing new._
 
