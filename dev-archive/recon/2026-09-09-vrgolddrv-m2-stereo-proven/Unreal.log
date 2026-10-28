@@ -10,7 +10,7 @@ Log: Bound to Core.dll
 Log: Bound to Window.dll
 Init: Object subsystem initialized
 Init: OS: Windows
-Init: Computer: RTX
+Init: Computer: <home PC>
 Init: User: <home-login>
 Init: Memory total: Phys=33319232K Pagef=37120320K Virt=-128K
 Init: Working set: 32000 / 159000

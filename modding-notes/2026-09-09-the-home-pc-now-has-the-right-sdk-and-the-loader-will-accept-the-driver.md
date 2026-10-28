@@ -1,6 +1,6 @@
 # The home PC now has the right SDK, and the loader will accept the driver there too
 
-**2026-09-09, home PC (`RTX`), no launch.**
+**2026-09-09, home PC, no launch.**
 
 ## The row said "the home PC needs the same rebuild first". It was right, and the failure was reproduced before fixing it.
 

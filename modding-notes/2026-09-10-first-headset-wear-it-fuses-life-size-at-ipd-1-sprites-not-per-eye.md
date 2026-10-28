@@ -1,6 +1,6 @@
 # 2026-09-10 — first headset wear: it fuses, life-size at IPD 1.0, sprites are not per eye
 
-Home PC `RTX`, Quest 3 over **Virtual Desktop in half side-by-side 3D mode** (the driver
+Home PC, Quest 3 over **Virtual Desktop in half side-by-side 3D mode** (the driver
 renders SBS to the monitor; VD turns it into stereo). Tefa driving, **two launches**, console
 via Tab. Driver `VRGoldDrv.dll` 198,144 B (`01d7ccb7c30e`, v227k_15 SDK). Before the first
 launch `Unreal.ini` `FullscreenViewportX/Y` was set 1024×768 → 3440×1440 so a fullscreen SBS

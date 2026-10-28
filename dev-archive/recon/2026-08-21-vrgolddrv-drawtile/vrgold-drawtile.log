@@ -10,7 +10,7 @@ Log: Bound to Core.dll
 Log: Bound to Window.dll
 Init: Object subsystem initialized
 Init: OS: Windows
-Init: Computer: RTX
+Init: Computer: <home PC>
 Init: User: <home-login>
 Init: Memory total: Phys=33319232K Pagef=37120320K Virt=-128K
 Init: Working set: 32000 / 159000
@@ -43,7 +43,7 @@ Log: Browse: LOG=vrgold-drawtile.log/Index.unr?Name=Player?Class=UnrealI.FemaleO
 Log: Bound to IpDrv.dll
 Init: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
 Init: WinSock: Socket queue 32768 / 32768
-Init: WinSock: I am RTX (192.168.0.125)
+Init: WinSock: I am home PC
 Log: Browse: Unreal.unr?Name=Player?Class=UnrealI.FemaleOne
 Log: LoadMap: Unreal.unr?Name=Player?Class=UnrealI.FemaleOne
 Log: Bringing Level Unreal.MyLevel up for play (0)...

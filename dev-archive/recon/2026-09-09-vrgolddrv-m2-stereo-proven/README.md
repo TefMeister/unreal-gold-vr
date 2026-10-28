@@ -1,6 +1,6 @@
 # Evidence — VRGoldDrv M2 stereo proven live, home PC, 2026-09-09
 
-One launch, `/lm`, home PC (`RTX`). Game closed gracefully through its own console `exit`.
+One launch, `/lm`, home PC. Game closed gracefully through its own console `exit`.
 
 | file | what it shows |
 | --- | --- |

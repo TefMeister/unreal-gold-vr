@@ -1,6 +1,6 @@
 # M2 stereo is proven live — and the console key is Tab, not tilde
 
-**2026-09-09, home PC (`RTX`), `/lm`, ONE launch. Game closed gracefully through its own console.**
+**2026-09-09, home PC, `/lm`, ONE launch. Game closed gracefully through its own console.**
 
 Evidence: `dev-archive/recon/2026-09-09-vrgolddrv-m2-stereo-proven/` (8 captures, the full
 `Unreal.log`, the harness, and the numbers).
