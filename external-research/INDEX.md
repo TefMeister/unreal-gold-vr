@@ -1,6 +1,6 @@
 # Research index
 
-**Last `/gr` pass: 2026-11-01 (estate sweep) — CHECK-IN.** Watch list: Unreal Revived still at 0.9.0 (last push 2026-09-30); nothing new.
+**Last `/gr` pass: 2026-11-14 — CHECK-IN.** Watch list: Unreal Revived still at 0.9.0, last push 2026-09-30 (about 6.5 weeks quiet); nothing new.
 
 _Previous: **Last `/gr` pass: 2026-10-27 (estate sweep) — CHECK-IN.** Inbox empty. Watch check: Unreal Revived still at 0.9.0 (2026-09-25), last push 2026-09-30. Nothing new._
 
